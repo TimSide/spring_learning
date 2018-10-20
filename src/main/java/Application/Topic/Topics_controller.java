@@ -17,32 +17,32 @@ public class Topics_controller {
 
     // GET Request
     @RequestMapping("/topics")
-    public List<Topic> get_all_topics() {
-        return topic_service.get_all_topics();
+    public List<Topic> getAllTopics() {
+        return topic_service.getAllTopics();
     }
 
     // Individual request
     @RequestMapping("/topics/{id}")
     public Topic getTopic(@PathVariable String id) {
-        return topic_service.get_topic(id);
+        return topic_service.getTopic(id);
     }
 
     // POST Request
     @RequestMapping(method = RequestMethod.POST, value = "/topics")
-    public void add_topic(@RequestBody Topic topic) {
-        topic_service.add_topic(topic);
+    public void addTopic(@RequestBody Topic topic) {
+        topic_service.addTopic(topic);
     }
 
     // PUT Request
     @RequestMapping(method = RequestMethod.PUT, value = "/topics/{id}")
-    public void add_topic(@RequestBody Topic topic, @PathVariable String id) {
-        topic_service.update_topic(id,topic);
+    public void updateTopic(@RequestBody Topic topic) {
+        topic_service.updateTopic(topic);
     }
 
     // DELETE Request
     @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{id}")
-    public void delete_topic(@PathVariable String id) {
-        topic_service.delete_topic(id);
+    public void deleteTopic(@PathVariable String id) {
+        topic_service.deleteTopic(id);
     }
 
 }
