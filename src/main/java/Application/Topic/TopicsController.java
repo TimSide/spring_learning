@@ -6,43 +6,43 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class Topics_controller {
+public class TopicsController {
 
-    private final Topic_service topic_service;
+    private final TopicService topic_service;
 
     @Autowired
-    public Topics_controller(Topic_service topic_service) {
+    public TopicsController(TopicService topic_service) {
         this.topic_service = topic_service;
     }
 
-    // GET Request
+    // Get all topics
     @RequestMapping("/topics")
     public List<Topic> getAllTopics() {
         return topic_service.getAllTopics();
     }
 
-    // Individual request
-    @RequestMapping("/topics/{id}")
-    public Topic getTopic(@PathVariable String id) {
-        return topic_service.getTopic(id);
+    // Get topic by id
+    @RequestMapping("/topics/{idTopic}")
+    public Topic getTopic(@PathVariable String idTopic) {
+        return topic_service.getTopic(idTopic);
     }
 
-    // POST Request
+    // Create topic
     @RequestMapping(method = RequestMethod.POST, value = "/topics")
     public void addTopic(@RequestBody Topic topic) {
         topic_service.addTopic(topic);
     }
 
     // PUT Request
-    @RequestMapping(method = RequestMethod.PUT, value = "/topics/{id}")
+    @RequestMapping(method = RequestMethod.PUT, value = "/topics/{idTopic}")
     public void updateTopic(@RequestBody Topic topic) {
         topic_service.updateTopic(topic);
     }
 
     // DELETE Request
-    @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{id}")
-    public void deleteTopic(@PathVariable String id) {
-        topic_service.deleteTopic(id);
+    @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{idTopic}")
+    public void deleteTopic(@PathVariable String idTopic) {
+        topic_service.deleteTopic(idTopic);
     }
 
 }

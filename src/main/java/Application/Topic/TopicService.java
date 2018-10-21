@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class Topic_service {
+public class TopicService {
 
     @Autowired
     TopicRepository topicRepository;
